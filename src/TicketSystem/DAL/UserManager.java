@@ -1,4 +1,4 @@
 package TicketSystem.DAL;
 
-public class DAL {
+public class UserManager {
 }
