@@ -12,11 +12,11 @@ private AppModel model;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        model = new AppModel();
     }
 
     public void setModel(AppModel model){
-        this.model = this.model;
+        this.model = model;
 
     }
 }
