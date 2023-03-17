@@ -1,7 +1,19 @@
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
+public class main extends Application {
+    public static void main(String[] args){ launch(args);
+    }
 
-public class main {
-    public static void main(String[] args){
-        System.out.println("Hello World");
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("TicketSystem/GUI/View/LogInView.fxml"));
+        primaryStage.setTitle("EASV Events Login");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
+        primaryStage.show();
     }
 }
