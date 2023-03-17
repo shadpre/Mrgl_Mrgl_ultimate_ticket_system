@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25ea69cf-0827-42e2-9a7d-52655abf389c" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/Controller/LogInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/Model/AppModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/View/LogInView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TicketSystem/BLL/bll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketSystem/BLL/EventManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TicketSystem/GUI/Controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/Controller/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +18,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -32,9 +38,24 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="Mrgl-Mrgl ultimate ticket system" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -43,6 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678956039966</updated>
+      <workItem from="1679040230624" duration="2541000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1678956149225</created>
@@ -53,6 +75,9 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
