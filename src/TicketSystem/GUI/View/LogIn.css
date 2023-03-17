@@ -1,0 +1,19 @@
+AnchorPane
+{
+    -fx-background-color: linear-gradient(to bottom right, #495672, #522323, #468f4d);
+}
+
+Label
+{
+    -fx-text-fill: #b4ac42;
+}
+
+.userNameTxt
+{
+    -fx-cursor: hand;
+}
+
+.passwordTxt
+{
+    -fx-cursor: hand;
+}

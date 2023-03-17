@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25ea69cf-0827-42e2-9a7d-52655abf389c" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/Controller/LogInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/Model/AppModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/View/LogInView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/View/LogIn.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TicketSystem/BLL/bll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketSystem/BLL/EventManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TicketSystem/GUI/Controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/Controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TicketSystem/GUI/View/LogInView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketSystem/GUI/View/LogInView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +16,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -39,7 +36,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "list.type.of.created.stylesheet": "CSS"
   }
 }]]></component>
   <component name="RunManager">
@@ -64,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678956039966</updated>
-      <workItem from="1679040230624" duration="2541000" />
+      <workItem from="1679040230624" duration="3468000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1678956149225</created>
