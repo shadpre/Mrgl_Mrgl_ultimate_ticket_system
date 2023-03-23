@@ -19,6 +19,23 @@ public class EventPlannerController extends BaseController implements Initializa
 
 
     public void handleCreateEvent(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/EventMaker.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("EASV Customer Events");
+            stage.show();
+
+            BaseController controller = loader.getController();
+            controller.setModel(appModel);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "");
+            alert.showAndWait();
+        }
+
     }
 
     public void handleDeleteEvent(ActionEvent actionEvent) {
