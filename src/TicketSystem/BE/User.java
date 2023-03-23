@@ -24,7 +24,5 @@ public class User {
         return Name;
     }
 
-    public boolean isSysAdmin() {
-        return IsSysAdmin;
-    }
+    public boolean isSysAdmin() {return isSysAdmin();}
 }

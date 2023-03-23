@@ -1,5 +1,6 @@
 package TicketSystem.GUI.Controller;
 
+import TicketSystem.BE.User;
 import TicketSystem.GUI.Model.AppModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +14,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 public class LogInController implements Initializable {
 
     private AppModel model;
+    private User user;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -23,6 +26,8 @@ public class LogInController implements Initializable {
     }
 
     public void handleLogIn(ActionEvent actionEvent) {
+
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/EventPlannerView.fxml"));
             Parent root = loader.load();
@@ -38,6 +43,8 @@ public class LogInController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR, "");
             alert.showAndWait();
         }
+
+
     }
 
     public void handleNewUser(ActionEvent actionEvent) {
