@@ -1,6 +1,7 @@
 package TicketSystem.GUI.Controller;
 
 import TicketSystem.BE.Event;
+import TicketSystem.GUI.Model.AppModel;
 import TicketSystem.GUI.Model.EventMakerModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +14,7 @@ import javafx.stage.Stage;
 import java.time.LocalDateTime;
 
 public class EventMakerController {
-    private EventMakerModel eventMakerModel;
+    private AppModel appModel;
     @FXML
     private DatePicker txtDate;
     @FXML

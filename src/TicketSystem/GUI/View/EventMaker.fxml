@@ -15,22 +15,22 @@
       <TextField fx:id="txtDescription" layoutX="151.0" layoutY="123.0" />
       <TextField fx:id="txtAddress" layoutX="151.0" layoutY="238.0" />
       <TextField fx:id="txtTickets" layoutX="151.0" layoutY="291.0" />
-      <Label layoutX="54.0" layoutY="68.0" text="Headline">
+      <Label fx:id="headlineLbl" layoutX="48.0" layoutY="68.0" text="Headline">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="122.0" text="Description">
+      <Label fx:id="descriptionLbl" layoutX="51.0" layoutY="122.0" text="Description">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="237.0" text="Address">
+      <Label fx:id="adrressLbl" layoutX="51.0" layoutY="237.0" text="Address">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="290.0" text="Tickets">
+      <Label fx:id="ticketsLbl" layoutX="50.0" layoutY="290.0" text="Tickets">
          <font>
             <Font size="18.0" />
          </font>
@@ -39,7 +39,7 @@
       <Button fx:id="cancelBtn" layoutX="443.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleCancelBtn" text="Cancel" />
       <Button fx:id="createEventBtn" layoutX="374.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleCreateEvent" text="Create" />
       <DatePicker fx:id="txtDate" layoutX="151.0" layoutY="181.0" />
-      <Label layoutX="51.0" layoutY="180.0" text="Date">
+      <Label fx:id="dateLbl" layoutX="51.0" layoutY="180.0" text="Date">
          <font>
             <Font size="18.0" />
          </font>
