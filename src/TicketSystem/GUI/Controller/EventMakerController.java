@@ -1,5 +1,6 @@
 package TicketSystem.GUI.Controller;
 
+import TicketSystem.BE.Event;
 import TicketSystem.GUI.Model.EventMakerModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

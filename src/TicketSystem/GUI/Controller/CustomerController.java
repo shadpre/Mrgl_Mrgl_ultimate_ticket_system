@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CustomerController implements Initializable {
+public class CustomerController extends BaseController implements Initializable {
     private AppModel model;
     
 
@@ -40,7 +40,7 @@ public class CustomerController implements Initializable {
             stage.setTitle("EASV Events");
             stage.show();
 
-            MainViewController controller = loader.getController();
+            BaseController controller = loader.getController();
             controller.setModel(model);
         } catch (IOException e) {
             e.printStackTrace();

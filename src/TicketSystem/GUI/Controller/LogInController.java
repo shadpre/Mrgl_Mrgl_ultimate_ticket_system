@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class LogInController implements Initializable {
+public class LogInController extends BaseController implements Initializable {
 
     private AppModel model;
     private User user;
@@ -36,7 +36,7 @@ public class LogInController implements Initializable {
             stage.setTitle("EASV Events");
             stage.show();
 
-            MainViewController controller = loader.getController();
+            BaseController controller = loader.getController();
             controller.setModel(model);
         } catch (IOException e) {
             e.printStackTrace();
