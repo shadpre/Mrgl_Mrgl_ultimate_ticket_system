@@ -89,6 +89,13 @@ public class EventPlannerController extends BaseController implements Initializa
             alert.showAndWait();
         }
     }
+
+    public void handleShowEEvent(ActionEvent actionEvent) {
+    }
+
+    public void handleYourEEvent(ActionEvent actionEvent) {
+    }
+
 }
 
 

@@ -2,6 +2,8 @@ package TicketSystem.GUI.Controller;
 
 import TicketSystem.BE.User;
 import TicketSystem.GUI.Model.AppModel;
+import TicketSystem.GUI.Model.UserModel;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,31 +33,47 @@ public class LogInController extends BaseController implements Initializable {
     @FXML
     private TextField userNameTxt;
 
+    private UserModel usermodel;
+
+    private ObservableList<User> usersForCheck;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            usermodel = new UserModel();
+            model = new AppModel();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
         model = new AppModel();
     }
 
-    public void handleLogIn(ActionEvent actionEvent) {
 
-        String password = passwordTxt.getText();
-        String username = userNameTxt.getText();
 
-        if (Objects.equals(password, "admin") && Objects.equals(username, "admin")) {
-            showAdminWindow();
+        public String logInCheck(String username, String password, ObservableList<User> usersForCheck) {
+            for (User user : usersForCheck) {
+
+                if (user.getLogin().equals(username) && user.getPassword().equals(password)) {
+                    if (user.getIsSpecial() == 1) {
+                        showAdminWindow();
+                    }
+                    if (user.getIsSpecial() == 2) {
+
+                        showEventPlanner();
+                    }
+
+                    if (user.getIsSpecial() == 3) {
+                        showCustomerWindow();
+
+                    }
+
+                }
+            }
+
+            return "wrong";
         }
-
-        if (Objects.equals(password, "customer") && Objects.equals(username, "customer")) {
-            showCustomerWindow();
-        }
-
-        if (Objects.equals(password, "planner") && Objects.equals(username, "planner")) {
-            showEventPlanner();}
-
-        else{
-
-        }
-    }
 
     public void handleNewUser(ActionEvent actionEvent) {
 
@@ -118,4 +136,10 @@ public class LogInController extends BaseController implements Initializable {
     }
 
 
+    public void handleLogIn(ActionEvent actionEvent) {
+        String username = userNameTxt.getText();
+        String password = passwordTxt.getText();
+        ObservableList<User> usersForCheck = usermodel.getUsersForCheck();
+        logInCheck(username, password, usersForCheck);
+    }
 }

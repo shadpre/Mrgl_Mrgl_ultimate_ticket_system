@@ -18,12 +18,12 @@
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="deleteEvent" layoutX="43.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleDeleteEvent" prefHeight="54.0" prefWidth="130.0" text="Delete Event" textFill="#cf9121">
+      <Button fx:id="deleteEvent" layoutX="44.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleDeleteEvent" prefHeight="54.0" prefWidth="130.0" text="Delete Event" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="updateEvent" layoutX="43.0" layoutY="376.0" mnemonicParsing="false" onAction="#handleUpdateEvent" prefHeight="53.0" prefWidth="129.0" text="Update Event" textFill="#cf9121">
+      <Button fx:id="updateEvent" layoutX="43.0" layoutY="342.0" mnemonicParsing="false" onAction="#handleUpdateEvent" prefHeight="53.0" prefWidth="129.0" text="Update Event" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
@@ -56,5 +56,15 @@
             </ScrollPane>
          </children>
       </HBox>
+      <Button fx:id="yourEEvent" layoutX="43.0" layoutY="558.0" mnemonicParsing="false" onAction="#handleYourEEvent" prefHeight="54.0" prefWidth="130.0" text="Your Events" textFill="#cf9121">
+         <font>
+            <Font name="Gill Sans MT Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="showEEvent" layoutX="42.0" layoutY="495.0" mnemonicParsing="false" onAction="#handleShowEEvent" prefHeight="54.0" prefWidth="130.0" text="Show Event" textFill="#cf9121">
+         <font>
+            <Font name="Gill Sans MT Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
