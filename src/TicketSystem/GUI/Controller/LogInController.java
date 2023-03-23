@@ -26,8 +26,14 @@ public class LogInController extends BaseController implements Initializable {
     }
 
     public void handleLogIn(ActionEvent actionEvent) {
+        showEventPlanner();
+    }
+
+    public void handleNewUser(ActionEvent actionEvent) {
+    }
 
 
+    public void showEventPlanner() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/EventPlannerView.fxml"));
             Parent root = loader.load();
@@ -43,10 +49,41 @@ public class LogInController extends BaseController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR, "");
             alert.showAndWait();
         }
-
-
     }
 
-    public void handleNewUser(ActionEvent actionEvent) {
+    public void showCustomerWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/CustomerView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("EASV Events");
+            stage.show();
+
+            BaseController controller = loader.getController();
+            controller.setModel(model);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "");
+            alert.showAndWait();
+        }
+    }
+
+    public void showAdminWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/AdminView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("EASV Events");
+            stage.show();
+
+            BaseController controller = loader.getController();
+            controller.setModel(model);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "");
+            alert.showAndWait();
+        }
     }
 }

@@ -15,10 +15,11 @@ import java.util.ResourceBundle;
 
 public class EventPlannerController extends BaseController implements Initializable {
 
-    private AppModel appModel;
+    private AppModel model;
 
 
     public void handleCreateEvent(ActionEvent actionEvent) {
+        showCreateEvent();
     }
 
     public void handleDeleteEvent(ActionEvent actionEvent) {
@@ -37,7 +38,7 @@ public class EventPlannerController extends BaseController implements Initializa
             stage.show();
 
             BaseController controller = loader.getController();
-            controller.setModel(appModel);
+            controller.setModel(model);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -51,5 +52,23 @@ public class EventPlannerController extends BaseController implements Initializa
     public void initialize(URL location, ResourceBundle resources) {
 
         }
+    public void showCreateEvent() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/EventMaker.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("EASV Events");
+            stage.show();
+
+            BaseController controller = loader.getController();
+            controller.setModel(model);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "");
+            alert.showAndWait();
+        }
+    }
 }
+
 

@@ -11,19 +11,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="980.0" style="-fx-background-color: snow;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.EventPlannerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="980.0" stylesheets="@EventPlanner.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.EventPlannerController">
    <children>
-      <Button fx:id="createEvent" layoutX="43.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleCreateEvent" prefHeight="54.0" prefWidth="130.0" style="-fx-background-color: white; -fx-border-color: yellow; -fx-border-width: 2px;" text="Create Event" textFill="#cf9121">
+      <Button fx:id="createEvent" layoutX="43.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleCreateEvent" prefHeight="54.0" prefWidth="130.0" text="Create Event" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="deleteEvent" layoutX="43.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleDeleteEvent" prefHeight="54.0" prefWidth="130.0" style="-fx-background-color: white; -fx-border-color: yellow; -fx-border-width: 2px;" text="Delete Event" textFill="#cf9121">
+      <Button fx:id="deleteEvent" layoutX="43.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleDeleteEvent" prefHeight="54.0" prefWidth="130.0" text="Delete Event" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="updateEvent" layoutX="43.0" layoutY="376.0" mnemonicParsing="false" onAction="#handleUpdateEvent" prefHeight="53.0" prefWidth="129.0" style="-fx-background-color: white; -fx-border-color: yellow; -fx-border-width: 2px;" text="Update Event" textFill="#cf9121">
+      <Button fx:id="updateEvent" layoutX="43.0" layoutY="376.0" mnemonicParsing="false" onAction="#handleUpdateEvent" prefHeight="53.0" prefWidth="129.0" text="Update Event" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
@@ -33,7 +33,7 @@
             <Image url="@../../../data/img/Bruger.png" />
          </image>
       </ImageView>
-      <Button fx:id="user" layoutX="71.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleUser" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: white; -fx-border-color: yellow; -fx-border-width: 2px;" text="User" textFill="#cf9121">
+      <Button fx:id="user" layoutX="71.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleUser" prefHeight="31.0" prefWidth="74.0" text="User" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>

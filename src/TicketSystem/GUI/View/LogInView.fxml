@@ -8,11 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-            stylesheets="@LogIn.css" fx:controller="TicketSystem.GUI.Controller.LogInController">
+<AnchorPane prefHeight="250.0" prefWidth="400.0" stylesheets="@LogIn.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.LogInController">
    <children>
-      <Button fx:id="newUserBtn" layoutX="100.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleNewUser" styleClass="userNameTxt" text="New User" />
-      <Button fx:id="logInBtn" layoutX="249.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleLogIn" styleClass="passwordTxt" text="Log In" />
+      <Button fx:id="newUserBtn" layoutX="92.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleNewUser" styleClass="userNameTxt" text="New User" />
+      <Button fx:id="logInBtn" layoutX="245.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="30.0" prefWidth="72.0" styleClass="passwordTxt" text="Log In" />
       <TextField fx:id="userNameTxt" layoutX="92.0" layoutY="63.0" prefHeight="25.0" prefWidth="223.0" />
       <PasswordField fx:id="passwordTxt" layoutX="94.0" layoutY="125.0" prefHeight="25.0" prefWidth="223.0" />
       <Label layoutX="100.0" layoutY="37.0" text="User Name">

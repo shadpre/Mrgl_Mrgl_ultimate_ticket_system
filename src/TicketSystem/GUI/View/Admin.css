@@ -1,7 +1,17 @@
 .button {
-    -fx-border-color: yellow;
+    -fx-border-color: gold;
     -fx-border-width: 2px;
     -fx-border-radius: 3px;
     -fx-background-radius: 3px;
     -fx-background-color:  white;
+}
+
+.button:hover {
+    -fx-border-color: yellow;
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+}
+
+AnchorPane {
+    -fx-background-color: snow;
 }

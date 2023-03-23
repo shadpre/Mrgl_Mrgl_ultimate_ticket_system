@@ -11,19 +11,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="984.0" style="-fx-background-color: snow;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.CustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="984.0" stylesheets="@CustomerView.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.CustomerController">
    <children>
-      <Button fx:id="customerAllEvents" layoutX="43.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleCustomerAllEvents" prefHeight="54.0" prefWidth="130.0" style="-fx-background-color: white; -fx-border-color: yellow; -fx-border-width: 2px;" text="All Events" textFill="#cf9121">
+      <Button fx:id="customerAllEvents" layoutX="43.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleCustomerAllEvents" prefHeight="54.0" prefWidth="130.0" text="All Events" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="cancelSignUp" layoutX="43.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleCancelSignup" prefHeight="54.0" prefWidth="130.0" style="-fx-background-color: white; -fx-border-color: yellow; -fx-border-width: 2px;" text="Cancel SignUp" textFill="#cf9121">
+      <Button fx:id="cancelSignUp" layoutX="43.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleCancelSignup" prefHeight="54.0" prefWidth="130.0" text="Cancel SignUp" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="customerEvents" layoutX="43.0" layoutY="376.0" mnemonicParsing="false" onAction="#handleCustomerEvents" prefHeight="53.0" prefWidth="129.0" style="-fx-background-color: white; -fx-border-color: yellow; -fx-border-width: 2px;" text="Your Events" textFill="#cf9121">
+      <Button fx:id="customerEvents" layoutX="43.0" layoutY="376.0" mnemonicParsing="false" onAction="#handleCustomerEvents" prefHeight="53.0" prefWidth="129.0" text="Your Events" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
@@ -33,7 +33,7 @@
             <Image url="@../../../data/img/Bruger.png" />
          </image>
       </ImageView>
-      <Button fx:id="customerUser" layoutX="71.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleCustomerUser" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: white; -fx-border-color: yellow; -fx-border-width: 2px;" text="User" textFill="#cf9121">
+      <Button fx:id="customerUser" layoutX="71.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleCustomerUser" prefHeight="31.0" prefWidth="74.0" text="User" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>

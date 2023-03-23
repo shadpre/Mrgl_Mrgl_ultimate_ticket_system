@@ -1,6 +1,22 @@
 AnchorPane
 {
-    -fx-background-color: linear-gradient(to bottom right, #495672, #522323, #468f4d);
+    -fx-background-color: snow;
+}
+
+.button:hover{
+    -fx-border-color: Yellow;
+    -fx-border-width: 2px;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+}
+
+.button{
+    -fx-background-color: white;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-border-color: gold;
+
 }
 
 Label
