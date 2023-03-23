@@ -36,10 +36,6 @@ public class LogInController extends BaseController implements Initializable {
     }
 
     public void handleLogIn(ActionEvent actionEvent) {
-        showEventPlanner();
-    }
-
-    public void handleNewUser(ActionEvent actionEvent) {
         String password = passwordTxt.getText();
         String username = userNameTxt.getText();
 
@@ -57,6 +53,9 @@ public class LogInController extends BaseController implements Initializable {
         else{
 
         }
+    }
+
+    public void handleNewUser(ActionEvent actionEvent) {
 
 
     }
@@ -116,5 +115,5 @@ public class LogInController extends BaseController implements Initializable {
         }
     }
 
-    
+
 }
