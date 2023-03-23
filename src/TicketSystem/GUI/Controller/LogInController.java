@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -36,18 +37,19 @@ public class LogInController extends BaseController implements Initializable {
     }
 
     public void handleLogIn(ActionEvent actionEvent) {
+
         String password = passwordTxt.getText();
         String username = userNameTxt.getText();
 
-        if (password == "admin" && username == "admin") {
+        if (Objects.equals(password, "admin") && Objects.equals(username, "admin")) {
             showAdminWindow();
         }
 
-        if (password == "customer" && username == "customer") {
+        if (Objects.equals(password, "customer") && Objects.equals(username, "customer")) {
             showCustomerWindow();
         }
 
-        if (password == "planner" && username == "planner") {
+        if (Objects.equals(password, "planner") && Objects.equals(username, "planner")) {
             showEventPlanner();}
 
         else{
