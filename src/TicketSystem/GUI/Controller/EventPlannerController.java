@@ -13,26 +13,32 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LogInController implements Initializable {
+public class EventPlannerController implements Initializable {
 
-    private AppModel model;
+    private AppModel appModel;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        model = new AppModel();
+
+    public void handleCreateEvent(ActionEvent actionEvent) {
     }
 
-    public void handleLogIn(ActionEvent actionEvent) {
+    public void handleDeleteEvent(ActionEvent actionEvent) {
+    }
+
+    public void handleUpdateEvent(ActionEvent actionEvent) {
+    }
+
+    public void handleUser(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/EventPlannerView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/CustomerView.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("EASV Events");
+            stage.setTitle("EASV Customer Events");
             stage.show();
 
             MainViewController controller = loader.getController();
-            controller.setModel(model);
+            controller.setModel(appModel);
+
         } catch (IOException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "");
@@ -40,6 +46,10 @@ public class LogInController implements Initializable {
         }
     }
 
-    public void handleNewUser(ActionEvent actionEvent) {
-    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        }
 }
+
