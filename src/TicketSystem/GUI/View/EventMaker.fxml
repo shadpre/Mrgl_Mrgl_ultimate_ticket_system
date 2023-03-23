@@ -38,7 +38,7 @@
       <ImageView fx:id="eventPicture" fitHeight="196.0" fitWidth="223.0" layoutX="346.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="cancelBtn" layoutX="443.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleCancelBtn" text="Cancel" />
       <Button fx:id="createEventBtn" layoutX="374.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleCreateEvent" text="Create" />
-      <DatePicker layoutX="151.0" layoutY="181.0" />
+      <DatePicker fx:id="txtDate" layoutX="151.0" layoutY="181.0" />
       <Label layoutX="51.0" layoutY="180.0" text="Date">
          <font>
             <Font size="18.0" />
