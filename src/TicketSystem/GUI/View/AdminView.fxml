@@ -27,7 +27,7 @@
       </Button>
       <ImageView fx:id="admingPic" fitHeight="107.0" fitWidth="130.0" layoutX="52.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/testing.png" />
+            <Image url="@../../../data/img/Admin.png" />
          </image>
       </ImageView>
       <Button fx:id="createAEvent" layoutX="42.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleCreateAEvent" prefHeight="54.0" prefWidth="130.0" text="Create Event" textFill="#cf9121">
