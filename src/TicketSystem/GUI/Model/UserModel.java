@@ -1,7 +1,7 @@
 package TicketSystem.GUI.Model;
 
 import TicketSystem.BE.User;
-import TicketSystem.DAL.UserManager;
+import TicketSystem.BLL.UserManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
