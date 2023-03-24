@@ -72,7 +72,8 @@ public class LogInController extends BaseController implements Initializable {
                 }
             }
 
-            return "wrong";
+            showAlert("User does not exist");
+            return null;
         }
 
     public void handleNewUser(ActionEvent actionEvent) {
@@ -142,4 +143,13 @@ public class LogInController extends BaseController implements Initializable {
         ObservableList<User> usersForCheck = usermodel.getUsersForCheck();
         logInCheck(username, password, usersForCheck);
     }
-}
+
+
+        public static void showAlert(String message) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText(message);
+            alert.showAndWait();
+        }
+    }
