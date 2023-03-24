@@ -33,7 +33,7 @@ public class EventsDAO_DB {
             // Loop through rows from the database result set
             while (rs.next()) {
 
-                //Map DB row to Song object
+
                 int id = rs.getInt("Id");
                 String name = rs.getString("Name");
                 String login = rs.getString("Login");
@@ -49,7 +49,7 @@ public class EventsDAO_DB {
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-            throw new RuntimeException("Could not get Songs from database", ex);
+            throw new RuntimeException("Could not get events from database", ex);
         }
 
     }
