@@ -2,6 +2,7 @@ package TicketSystem.GUI.Model;
 
 import TicketSystem.BE.User;
 import TicketSystem.BLL.UserManager;
+import TicketSystem.DAL.db.UsersDAO_DB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -24,6 +25,12 @@ public class UserModel {
         usersForCheck.clear();
         usersForCheck.addAll(userManager.getAllUsers());
         return usersForCheck;
+    }
+
+    public void createPlanner(String name, String login, String password, int isSysAdmin, int isSpecial) throws Exception {
+        User u = userManager.createPlanner(name, login, password, isSysAdmin, isSpecial);
+
+        usersForCheck.add(u);
     }
 
 }

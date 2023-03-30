@@ -10,13 +10,15 @@ public class User {
     private String Password;
 
     private int IsSpecial;
+    private int IsSysAdmin;
 
 
-    public User(int ID, String name, String login, String password, int isSpecial) {
+    public User(int ID, String name, String login, String password, int isSysAdmin, int isSpecial) {
         this.ID = ID;
         Name = name;
         Login = login;
         Password = password;
+        IsSysAdmin = isSysAdmin;
         IsSpecial = isSpecial;
     }
 

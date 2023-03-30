@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="378.0" prefWidth="298.0" stylesheets="@Planner.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.AddPlannerController">
+   <children>
+      <TextField fx:id="plannerName" layoutX="39.0" layoutY="47.0" prefHeight="40.0" prefWidth="210.0" />
+      <TextField fx:id="plannerLogin" layoutX="42.0" layoutY="160.0" prefHeight="40.0" prefWidth="210.0" />
+      <Label layoutX="91.0" layoutY="14.0" prefHeight="30.0" prefWidth="110.0" text="Event Planner Name" />
+      <Label layoutX="85.0" layoutY="121.0" prefHeight="30.0" prefWidth="127.0" text="Event Planner LogIn ID" />
+      <TextField fx:id="plannerPass" layoutX="42.0" layoutY="269.0" prefHeight="40.0" prefWidth="210.0" />
+      <Label layoutX="80.0" layoutY="229.0" prefHeight="30.0" prefWidth="127.0" text="Event Planner Password" />
+      <Button fx:id="addPlanner" layoutX="176.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleAddPlanner" text="Add Planner" />
+      <Button fx:id="cancelAddPlanner" layoutX="39.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleCancelAddPlanner" text="Cancel" />
+   </children>
+</AnchorPane>

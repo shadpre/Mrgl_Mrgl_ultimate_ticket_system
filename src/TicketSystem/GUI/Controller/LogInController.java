@@ -145,7 +145,7 @@ public class LogInController extends BaseController implements Initializable {
     }
 
 
-        public static void showAlert(String message) {
+        public void showAlert(String message) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText(null);

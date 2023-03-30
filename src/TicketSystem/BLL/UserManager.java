@@ -20,6 +20,9 @@ public class UserManager {
         return usersDAO_db.getAllUsers();
     }
 
+    public User createPlanner(String name, String login, String password, int isSysAdmin, int isSpecial) throws Exception {
+        return usersDAO_db.createPlanner(name, login, password, isSysAdmin, isSpecial);
+    }
 
 }
 

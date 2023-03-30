@@ -38,9 +38,10 @@ public class EventsDAO_DB {
                 String name = rs.getString("Name");
                 String login = rs.getString("Login");
                 String password = rs.getString("Password");
+                int isSysAdmin = rs.getInt("isSysAdmin");
                 int isSpecial = rs.getInt("isSpecial");
 
-                User users = new User(id, name, login, password, isSpecial);
+                User users = new User(id, name, login, password, isSysAdmin, isSpecial);
 
                 allEvents.add(users);
             }
