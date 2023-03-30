@@ -1,12 +1,9 @@
 package TicketSystem.DAL.db;
 
-import TicketSystem.BE.User;
-
+import TicketSystem.BE.Event;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,15 +14,15 @@ public class EventsDAO_DB {
         databaseConnector = new DatabaseConnector();
     }
 
-    public List<User> getAllEvents() throws Exception {
+    public List<Event> getAllEvents() throws Exception {
 
-        ArrayList<User> allEvents = new ArrayList<>();
+        ArrayList<Event> allEvents = new ArrayList<>();
 
 
         try (Connection conn = databaseConnector.getConnection();
              Statement stmt = conn.createStatement()) {
 
-            String sql = "SELECT * FROM dbo.Users;";
+            String sql = "SELECT * FROM dbo.Events;";
 
 
             ResultSet rs = stmt.executeQuery(sql);
@@ -33,17 +30,19 @@ public class EventsDAO_DB {
             // Loop through rows from the database result set
             while (rs.next()) {
 
+                String headline = rs.getString("Name");
+                String description = rs.getString("Description");
+                //LocalDateTime dateStart = rs.();
+                //LocalDateTime dateEnd = rs.();
+                String location = rs.getString("Location");
+                int ticketsAvailable = rs.getInt("TicketsAvailable");
+                int ticketsSold = rs.getInt("TicketsSold");
+                String createdBy = rs.getString("CreatesBY");
 
-                int id = rs.getInt("Id");
-                String name = rs.getString("Name");
-                String login = rs.getString("Login");
-                String password = rs.getString("Password");
-                int isSysAdmin = rs.getInt("isSysAdmin");
-                int isSpecial = rs.getInt("isSpecial");
 
-                User users = new User(id, name, login, password, isSysAdmin, isSpecial);
+                //Event events = new Event(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy);
 
-                allEvents.add(users);
+                //allEvents.add(events);
             }
 
             return allEvents;
@@ -53,5 +52,41 @@ public class EventsDAO_DB {
             throw new RuntimeException("Could not get events from database", ex);
         }
 
+    }
+
+    public Event createEvent(String name, String description, LocalDateTime eventStart, LocalDateTime eventEnd, String location, int maxTickets,
+                             int soldTickets, String createdBy) throws Exception {
+        String sql = "INSERT INTO Event (name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy)VALUES (?,?,?,?,?,?,?,?);";
+
+        try(Connection connection = databaseConnector.getConnection()){
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            statement.setString(1, name);
+            statement.setString(2, description);
+            //statement.setDate(3, eventStart);
+            //statement.setDate(4, eventEnd);
+            statement.setString(5, location);
+            statement.setInt(6, maxTickets);
+            statement.setInt(7, soldTickets);
+            statement.setString(8, createdBy);
+
+            statement.executeUpdate();
+            //giving an ID value to the song we create.
+            ResultSet rs = statement.getGeneratedKeys();
+            int id = 0;
+
+            if(rs.next());{
+                id = rs.getInt(1);
+            }
+
+            //Event event = new Event(id, name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy);
+            //return event;
+        }
+        catch (SQLException exc){
+            exc.printStackTrace();
+            throw new Exception("Could not create song", exc);
+
+        }
+        return null; // delete this later
     }
 }
