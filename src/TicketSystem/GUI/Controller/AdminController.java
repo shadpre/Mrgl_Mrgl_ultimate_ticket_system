@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AdminController implements Initializable {
+public class AdminController extends BaseController implements Initializable {
 
     private UserModel userModel;
 

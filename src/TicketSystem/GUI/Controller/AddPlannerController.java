@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.IntBinaryOperator;
 
-public class AddPlannerController implements Initializable {
+public class AddPlannerController extends BaseController implements Initializable {
     @FXML
     private Button addPlanner;
 

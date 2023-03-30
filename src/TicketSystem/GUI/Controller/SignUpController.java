@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SignUpController implements Initializable {
+public class SignUpController extends BaseController implements Initializable {
     private UserModel userModel;
     private LogInController logInController;
 
