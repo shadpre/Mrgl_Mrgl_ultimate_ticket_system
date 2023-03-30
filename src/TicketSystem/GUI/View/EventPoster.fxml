@@ -1,14 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="TicketSystem.GUI.Controller.EventPosterController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="200.0" prefWidth="700.0" stylesheets="@EventPoster.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.EventPosterController">
+   <children>
+      <HBox prefHeight="40.0" prefWidth="700.0">
+         <children>
+            <Label fx:id="headlineLbl" prefHeight="40.0" prefWidth="320.0" text="Fotball: Denmark vs. France">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label prefHeight="40.0" prefWidth="55.0" text="Date:">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateLbl" prefHeight="40.0" prefWidth="100.0" text="12/05-23">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="40.0" prefWidth="140.0" text="Doors Open At:">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="startLbl" alignment="CENTER" prefHeight="40.0" prefWidth="85.0" text="19:00">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" layoutY="40.0" prefHeight="120.0" prefWidth="250.0">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <children>
+            <ImageView fx:id="posterImg" fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets right="10.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@../../../data/img/DKvsFR.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <HBox layoutY="160.0" prefHeight="40.0" prefWidth="700.0">
+         <children>
+            <Label prefHeight="40.0" prefWidth="50.0" text="Place:">
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="placeLbl" prefHeight="40.0" prefWidth="200.0" text="Sp. Krikevej 103, Esbjerg">
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="40.0" prefWidth="105.0" text="Total Tickets:">
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="totalTicketLbl" prefHeight="40.0" prefWidth="50.0" text="200">
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="40.0" prefWidth="95.0" text="Tickets Left:">
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ticketLeftLbl" prefHeight="40.0" prefWidth="50.0" stylesheets="@EventPoster.css" text="112">
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="buyBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="110.0" stylesheets="@EventPoster.css" text="Buy Tickets">
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="15.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="254.0" layoutY="40.0" prefHeight="120.0" prefWidth="446.0">
+         <children>
+            <TextArea fx:id="descriptionField" prefHeight="120.0" prefWidth="435.0" styleClass="transparent" stylesheets="@EventPoster.css" text="Come and watch the match on the big Screen in the bar">
+               <font>
+                  <Font name="Cambria" size="16.0" />
+               </font>
+            </TextArea>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>

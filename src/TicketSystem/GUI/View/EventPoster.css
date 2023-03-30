@@ -1,0 +1,21 @@
+AnchorPane {
+    -fx-background-color: snow;
+    -fx-background-radius: 10;
+}
+.button {
+    -fx-border-color: gold;
+    -fx-border-width: 2px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-background-color:  white;
+}
+
+.button:hover {
+    -fx-border-color: yellow;
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
