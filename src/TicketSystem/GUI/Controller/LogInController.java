@@ -59,9 +59,8 @@ public class LogInController extends BaseController implements Initializable {
             this.userModel = userModel;
 
             userModel.showList();
-            userModel.getUsersForCheck();
 
-            for (User user : usersForCheck) {
+            for (User user : userModel.showList()) {
                 if (user.getLogin().equals(username)) {
                     if (user.getPassword().equals(password)) {
                         if (user.getIsSpecial() == 1) {
