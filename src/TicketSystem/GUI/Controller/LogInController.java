@@ -26,6 +26,7 @@ public class LogInController extends BaseController implements Initializable {
 
     private AppModel model;
     private User user;
+    private UserModel userModel;
 
     @FXML
     private PasswordField passwordTxt;
@@ -41,6 +42,7 @@ public class LogInController extends BaseController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             usermodel = new UserModel();
+            this.userModel = userModel;
             model = new AppModel();
 
         } catch (Exception e) {
@@ -52,31 +54,62 @@ public class LogInController extends BaseController implements Initializable {
 
 
 
-        public String logInCheck(String username, String password, ObservableList<User> usersForCheck) {
+        public String logInCheck(String username, String password, ObservableList<User> usersForCheck) throws Exception {
+            userModel = new UserModel();
+            this.userModel = userModel;
+
+            userModel.showList();
+            userModel.getUsersForCheck();
+
             for (User user : usersForCheck) {
-
-                if (user.getLogin().equals(username) && user.getPassword().equals(password)) {
-                    if (user.getIsSpecial() == 1) {
-                        showAdminWindow();
+                if (user.getLogin().equals(username)) {
+                    if (user.getPassword().equals(password)) {
+                        if (user.getIsSpecial() == 1) {
+                            showAdminWindow();
+                        }
+                        if (user.getIsSpecial() == 2) {
+                            showEventPlanner();
+                        }
+                        if (user.getIsSpecial() == 3) {
+                            showCustomerWindow();
+                        }
+                        return null;
+                    } else {
+                        showAlert("Incorrect password");
+                        return null;
                     }
-                    if (user.getIsSpecial() == 2) {
-
-                        showEventPlanner();
-                    }
-
-                    if (user.getIsSpecial() == 3) {
-                        showCustomerWindow();
-
-                    }
-
                 }
             }
 
             showAlert("User does not exist");
             return null;
+
         }
 
     public void handleNewUser(ActionEvent actionEvent) {
+
+        //opening up our creation window
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/SignUp.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("EASV Events");
+            stage.show();
+
+            //setting controller and model for new window.
+
+            BaseController controller = loader.getController();
+
+            controller.setUserModel(userModel);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "");
+            alert.showAndWait();
+        }
 
 
     }
@@ -137,7 +170,7 @@ public class LogInController extends BaseController implements Initializable {
     }
 
 
-    public void handleLogIn(ActionEvent actionEvent) {
+    public void handleLogIn(ActionEvent actionEvent) throws Exception {
         String username = userNameTxt.getText();
         String password = passwordTxt.getText();
         ObservableList<User> usersForCheck = usermodel.getUsersForCheck();

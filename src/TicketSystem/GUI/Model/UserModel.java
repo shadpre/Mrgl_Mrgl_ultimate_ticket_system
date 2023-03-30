@@ -33,4 +33,10 @@ public class UserModel {
         usersForCheck.add(u);
     }
 
+    public void deleteUser(User deletedUser) throws Exception {
+        userManager.deleteUser(deletedUser);
+        usersForCheck.clear();
+        usersForCheck.addAll(userManager.getAllUsers());
+    }
+
 }

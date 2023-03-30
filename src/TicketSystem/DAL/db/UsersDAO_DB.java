@@ -82,5 +82,25 @@ public class UsersDAO_DB {
 
         }
     }
+
+
+
+    public void deleteUser(User user) throws Exception {
+
+        try(Connection connection = databaseConnector.getConnection()){
+
+            String sql = "DELETE FROM dbo.Users WHERE id = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setInt(1, user.getID());
+
+            statement.executeUpdate();
+        }
+        catch (SQLException exc){
+            exc.printStackTrace();
+            throw new Exception("Could not delete User", exc);
+        }
+
+    }
 }
 

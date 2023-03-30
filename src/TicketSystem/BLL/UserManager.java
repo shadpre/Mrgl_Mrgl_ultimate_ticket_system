@@ -24,6 +24,10 @@ public class UserManager {
         return usersDAO_db.createPlanner(name, login, password, isSysAdmin, isSpecial);
     }
 
+    public void deleteUser(User deletedUser) throws Exception{
+        usersDAO_db.deleteUser(deletedUser);
+    }
+
 }
 
 
