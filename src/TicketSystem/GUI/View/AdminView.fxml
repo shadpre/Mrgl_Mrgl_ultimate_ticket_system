@@ -60,9 +60,18 @@
                   <TableColumn fx:id="tablePassword" prefWidth="224.79998779296875" text="Password" />
               </columns>
             </TableView>
+            <TableView fx:id="tableEvents" prefHeight="200.0" prefWidth="200.0">
+               <columns>
+                  <TableColumn fx:id="eventName" prefWidth="172.0" text="Event Name" />
+                  <TableColumn fx:id="eventStart" prefWidth="132.00006103515625" text="Event Start" />
+                  <TableColumn fx:id="eventEnd" prefWidth="132.79998779296875" text="Event End" />
+                  <TableColumn fx:id="eventLocation" prefWidth="168.0" text="Location" />
+                  <TableColumn fx:id="eventApproval" prefWidth="64.7999267578125" text="Approval" />
+               </columns>
+            </TableView>
          </children>
       </StackPane>
-      <Button fx:id="showAEvent" layoutX="427.0" layoutY="595.0" mnemonicParsing="false" onAction="#handleShowAEvent" prefHeight="53.0" prefWidth="129.0" text="Show Event" textFill="#cf9121">
+      <Button fx:id="showAEvent" layoutX="427.0" layoutY="595.0" mnemonicParsing="false" onAction="#handleShowAEvent" prefHeight="53.0" prefWidth="129.0" text="Event Info" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="14.0" />
          </font>

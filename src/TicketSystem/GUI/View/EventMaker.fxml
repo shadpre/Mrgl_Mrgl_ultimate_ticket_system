@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.EventMakerController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Planner.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.EventMakerController">
    <children>
       <Button fx:id="uploadPicBtn" layoutX="374.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleUploadPicture" text="Upload Picture" />
       <TextField fx:id="txtHeadline" layoutX="151.0" layoutY="69.0" />

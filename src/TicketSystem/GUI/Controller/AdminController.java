@@ -1,6 +1,8 @@
 package TicketSystem.GUI.Controller;
 
+import TicketSystem.BE.Event;
 import TicketSystem.BE.User;
+import TicketSystem.GUI.Model.EventMakerModel;
 import TicketSystem.GUI.Model.UserModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -20,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -29,6 +32,7 @@ public class AdminController extends BaseController implements Initializable {
 
     private ObservableList<User> getUsersForCheck;
 
+    private EventMakerModel eventMakerModel;
     @FXML
     private TableView<User> tableUsers;
     @FXML
@@ -37,6 +41,24 @@ public class AdminController extends BaseController implements Initializable {
     private TableColumn<User, String> tableLogin;
     @FXML
     private TableColumn<User, String> tablePassword;
+
+    @FXML
+    private TableView<Event> tableEvents;
+
+    @FXML
+    private TableColumn<Event, Boolean> eventApproval;
+
+    @FXML
+    private TableColumn<Event, LocalDateTime> eventEnd;
+
+    @FXML
+    private TableColumn<Event, String> eventLocation;
+
+    @FXML
+    private TableColumn<Event, String> eventName;
+
+    @FXML
+    private TableColumn<Event, LocalDateTime> eventStart;
 
     public AdminController() {
     }
@@ -47,16 +69,32 @@ public class AdminController extends BaseController implements Initializable {
 
         try{
             userModel = new UserModel();
+            eventMakerModel = new EventMakerModel();
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        tableName.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-        tableLogin.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
-        tablePassword.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
+        //tableName.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
+        //tableLogin.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
+        //tablePassword.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
 
 
-        tableUsers.setItems(userModel.getUsersForCheck());
+        //tableUsers.setItems(userModel.getUsersForCheck());
+
+        tableUsers.setVisible(false);
+
+        eventApproval.setCellValueFactory(new PropertyValueFactory<Event, Boolean>("Approved"));
+        eventStart.setCellValueFactory(new PropertyValueFactory<Event, LocalDateTime>("eventStart"));
+        eventEnd.setCellValueFactory(new PropertyValueFactory<Event, LocalDateTime>("eventEnd"));
+        eventName.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
+        eventLocation.setCellValueFactory(new PropertyValueFactory<Event, String>("location"));
+
+        try {
+            tableEvents.setItems(eventMakerModel.getObservableEvents());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -130,11 +168,14 @@ public class AdminController extends BaseController implements Initializable {
     }
 
     public void handleAllPlanners(ActionEvent actionEvent) throws Exception {
+       tableUsers.setVisible(true);
+       tableEvents.setVisible(false);
        getPlanners();
     }
 
     public void handleAllCustomers(ActionEvent actionEvent) throws Exception {
-
+        tableUsers.setVisible(true);
+        tableEvents.setVisible(false);
         getCustomers();
     }
 

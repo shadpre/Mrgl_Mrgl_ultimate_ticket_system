@@ -25,24 +25,26 @@ public class EventsDAO_DB {
             String sql = "SELECT * FROM dbo.Events;";
 
 
-            ResultSet rs = stmt.executeQuery(sql);
+            ResultSet resultSet = stmt.executeQuery(sql);
 
             // Loop through rows from the database result set
-            while (rs.next()) {
+            while (resultSet.next()) {
 
-                String headline = rs.getString("Name");
-                String description = rs.getString("Description");
-                //LocalDateTime dateStart = rs.();
-                //LocalDateTime dateEnd = rs.();
-                String location = rs.getString("Location");
-                int ticketsAvailable = rs.getInt("TicketsAvailable");
-                int ticketsSold = rs.getInt("TicketsSold");
-                String createdBy = rs.getString("CreatesBY");
+                int id = resultSet.getInt("ID");
+                String name = resultSet.getString("Name");
+                String description = resultSet.getString("Description");
+                LocalDateTime eventStart = resultSet.getTimestamp("EventStart").toLocalDateTime();
+                LocalDateTime eventEnd = resultSet.getTimestamp("EventEnd") != null ? resultSet.getTimestamp("EventEnd").toLocalDateTime() : null;
+                String location = resultSet.getString("Location");
+                int maxTickets = resultSet.getInt("MaxTickets");
+                int soldTickets = resultSet.getInt("SoldTickets");
+                int createdBy = resultSet.getInt("CreatedBy");
+                boolean approved = resultSet.getBoolean("Approved");
 
 
-                //Event events = new Event(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy);
+                Event events = new Event(id, name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, approved);
 
-                //allEvents.add(events);
+                allEvents.add(events);
             }
 
             return allEvents;
@@ -55,8 +57,8 @@ public class EventsDAO_DB {
     }
 
     public Event createEvent(String name, String description, LocalDateTime eventStart, LocalDateTime eventEnd, String location, int maxTickets,
-                             int soldTickets, String createdBy) throws Exception {
-        String sql = "INSERT INTO Event (name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy)VALUES (?,?,?,?,?,?,?,?);";
+                             int soldTickets, String createdBy, Boolean approved) throws Exception {
+        String sql = "INSERT INTO Event (name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved)VALUES (?,?,?,?,?,?,?,?,?);";
 
         try(Connection connection = databaseConnector.getConnection()){
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

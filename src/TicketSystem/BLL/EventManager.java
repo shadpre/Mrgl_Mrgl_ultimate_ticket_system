@@ -19,10 +19,12 @@ public class EventManager {
 
     public List<Event>getAllEvents() throws Exception {
         return eventsDAO_db.getAllEvents();
+
     }
 
     public Event createEvent(String name, String description, LocalDateTime eventStart, LocalDateTime eventEnd, String location, int maxTickets,
-                             int soldTickets, String createdBy) throws Exception{
-        return eventsDAO_db.createEvent(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy);
+                             int soldTickets, String createdBy, Boolean Approved) throws Exception{
+        return eventsDAO_db.createEvent(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved);
     }
+
 }

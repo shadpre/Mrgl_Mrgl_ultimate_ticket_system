@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class main extends Application {
+
     public static void main(String[] args){ launch(args);
     }
 
