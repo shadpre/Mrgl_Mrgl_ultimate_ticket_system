@@ -13,6 +13,8 @@ public class Event {
     private int SoldTickets;
     private int CreatedBy;
 
+    private boolean Approved;
+
     public void setID(int ID) {
         this.ID = ID;
     }
@@ -49,7 +51,7 @@ public class Event {
         CreatedBy = createdBy;
     }
 
-    public Event(int ID, String name, String description, LocalDateTime eventStart, LocalDateTime eventEnd, String location, int maxTickets, int soldTickets, int createdBy, Boolean Approved) {
+    public Event(int ID, String name, String description, LocalDateTime eventStart, LocalDateTime eventEnd, String location, int maxTickets, int soldTickets, int createdBy, boolean approved) {
         this.ID = ID;
         Name = name;
         Description = description;
@@ -59,6 +61,7 @@ public class Event {
         MaxTickets = maxTickets;
         SoldTickets = soldTickets;
         CreatedBy = createdBy;
+        Approved = approved;
     }
 
     public int getID() {
@@ -95,5 +98,13 @@ public class Event {
 
     public int getCreatedBy() {
         return CreatedBy;
+    }
+
+    public boolean isApproved() {
+        return Approved;
+    }
+
+    public void setApproved(boolean approved) {
+        Approved = approved;
     }
 }
