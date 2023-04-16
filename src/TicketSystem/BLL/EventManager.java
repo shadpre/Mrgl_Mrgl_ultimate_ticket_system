@@ -29,6 +29,6 @@ public class EventManager {
 
     public void updateApproval(Event event, boolean approval) throws Exception
     {
-        eventsDAO_db.updateMovieRating(event,approval);
+        eventsDAO_db.updateEventApproval(event,approval);
     }
 }

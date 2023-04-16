@@ -93,7 +93,7 @@ public class EventsDAO_DB {
         //return null; // delete this later
     }
 
-    public void updateMovieRating(Event event, boolean approval) throws Exception {
+    public void updateEventApproval(Event event, boolean approval) throws Exception {
 
         String sql = "UPDATE Events SET  Approved=? WHERE ID = ?";
 

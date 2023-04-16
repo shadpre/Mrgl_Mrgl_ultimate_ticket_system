@@ -37,7 +37,7 @@
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
       </Button>
-      <Text fx:id="labelEPlanner" fill="#a1543a" layoutX="492.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dine Events" wrappingWidth="129.59999999999997">
+      <Text fx:id="labelEPlanner" fill="#a1543a" layoutX="492.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Events" wrappingWidth="129.59999999999997">
          <font>
             <Font name="Gill Sans MT Bold" size="18.0" />
          </font>
