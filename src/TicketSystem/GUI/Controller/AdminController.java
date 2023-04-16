@@ -30,6 +30,8 @@ public class AdminController extends BaseController implements Initializable {
 
     private UserModel userModel;
 
+    private Event event;
+
     private ObservableList<User> getUsersForCheck;
 
     private EventMakerModel eventMakerModel;
@@ -49,7 +51,7 @@ public class AdminController extends BaseController implements Initializable {
     private TableColumn<Event, Boolean> eventApproval;
 
     @FXML
-    private TableColumn<Event, LocalDateTime> eventEnd;
+    private TableColumn<Event, String> eventEnd;
 
     @FXML
     private TableColumn<Event, String> eventLocation;
@@ -58,7 +60,7 @@ public class AdminController extends BaseController implements Initializable {
     private TableColumn<Event, String> eventName;
 
     @FXML
-    private TableColumn<Event, LocalDateTime> eventStart;
+    private TableColumn<Event, String> eventStart;
 
     public AdminController() {
     }
@@ -85,8 +87,8 @@ public class AdminController extends BaseController implements Initializable {
         tableUsers.setVisible(false);
 
         eventApproval.setCellValueFactory(new PropertyValueFactory<Event, Boolean>("Approved"));
-        eventStart.setCellValueFactory(new PropertyValueFactory<Event, LocalDateTime>("eventStart"));
-        eventEnd.setCellValueFactory(new PropertyValueFactory<Event, LocalDateTime>("eventEnd"));
+        eventStart.setCellValueFactory(new PropertyValueFactory<Event, String>("eventStart"));
+        eventEnd.setCellValueFactory(new PropertyValueFactory<Event, String>("eventEnd"));
         eventName.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
         eventLocation.setCellValueFactory(new PropertyValueFactory<Event, String>("location"));
 
@@ -141,6 +143,25 @@ public class AdminController extends BaseController implements Initializable {
     }
 
     public void handleCreateAEvent(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/EventMaker.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("EASV Events");
+            stage.show();
+
+            //setting controller and model for new window.
+
+            BaseController controller = loader.getController();
+            controller.setEventModel(eventMakerModel);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "");
+            alert.showAndWait();
+        }
     }
 
     public void handleUpdateAEvent(ActionEvent actionEvent) {
@@ -155,87 +176,104 @@ public class AdminController extends BaseController implements Initializable {
     public void handleShowAEvent(ActionEvent actionEvent) {
     }
 
-    public void handleCancel(ActionEvent actionEvent) {
+    public void handleCancel(ActionEvent actionEvent) throws Exception {
+        Event event = tableEvents.getSelectionModel().getSelectedItem();
+
+        Boolean approval = false;
+
+        eventMakerModel.updateApproval(event, approval);
     }
 
-    public void handleApprove(ActionEvent actionEvent) {
+    public void handleApprove(ActionEvent actionEvent) throws Exception {
+
+        Event event = tableEvents.getSelectionModel().getSelectedItem();
+
+        Boolean approval = true;
+
+        eventMakerModel.updateApproval(event, approval);
     }
 
-    public void handleConfirm(ActionEvent actionEvent) {
+    public void handleConfirm(ActionEvent actionEvent) throws Exception {
+            tableUsers.setVisible(false);
+            tableEvents.setVisible(true);
+            getMissingApproval();
     }
 
-    public void handleAllAEvents(ActionEvent actionEvent) {
+    public void handleAllAEvents (ActionEvent actionEvent) throws Exception {
+                tableUsers.setVisible(false);
+                tableEvents.setVisible(true);
+                setEventsForShow();
+
     }
 
-    public void handleAllPlanners(ActionEvent actionEvent) throws Exception {
-       tableUsers.setVisible(true);
-       tableEvents.setVisible(false);
-       getPlanners();
-    }
-
-    public void handleAllCustomers(ActionEvent actionEvent) throws Exception {
-        tableUsers.setVisible(true);
-        tableEvents.setVisible(false);
-        getCustomers();
-    }
-
-
-    public void confirmationUserDeletion() throws Exception {
-
-        //making an alert box to make sure you don't delete by mistake
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("You are about to delete a User");
-        alert.setContentText("Are you sure you want to delete?");
-        Optional<ButtonType> result = alert.showAndWait();
-
-
-        //if you press ok we proceed with deletion.
-
-        if (result.get() == ButtonType.OK) {
-            User deletedUser = tableUsers.getSelectionModel().getSelectedItem();
-
-            //simple way to update our table after deletion.
-            if (deletedUser.getIsSpecial() == 2){
-                userModel.deleteUser(deletedUser);
+    public void handleAllPlanners (ActionEvent actionEvent) throws Exception {
+                tableUsers.setVisible(true);
+                tableEvents.setVisible(false);
                 getPlanners();
-            }
+    }
 
-            else if(deletedUser.getIsSpecial() == 3){
-                userModel.deleteUser(deletedUser);
+    public void handleAllCustomers (ActionEvent actionEvent) throws Exception {
+                tableUsers.setVisible(true);
+                tableEvents.setVisible(false);
                 getCustomers();
-            }
-
-        } else {
-
-        }
     }
 
 
-    public void getCustomers() throws Exception {
+    public void confirmationUserDeletion () throws Exception {
 
-        //getting newest list and filtering it for all customers.
-        userModel.showList();
+                //making an alert box to make sure you don't delete by mistake
 
-        ObservableList<User> customers = FXCollections.observableArrayList();
-        for (User user : userModel.getUsersForCheck()) {
-            if (user.getIsSpecial() == 3) {
-                customers.add(user);
-            }
-        }
-
-        //clearing out and setting cell information
-        tableUsers.getItems().clear();
-
-        tableName.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-        tableLogin.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
-        tablePassword.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation Dialog");
+                alert.setHeaderText("You are about to delete a User");
+                alert.setContentText("Are you sure you want to delete?");
+                Optional<ButtonType> result = alert.showAndWait();
 
 
-        //adding all customers
-        tableUsers.setItems(customers);
+                //if you press ok we proceed with deletion.
+
+                if (result.get() == ButtonType.OK) {
+                    User deletedUser = tableUsers.getSelectionModel().getSelectedItem();
+
+                    //simple way to update our table after deletion.
+                    if (deletedUser.getIsSpecial() == 2) {
+                        userModel.deleteUser(deletedUser);
+                        getPlanners();
+                    } else if (deletedUser.getIsSpecial() == 3) {
+                        userModel.deleteUser(deletedUser);
+                        getCustomers();
+                    }
+
+                } else {
+
+                }
     }
+
+
+    public void getCustomers () throws Exception {
+
+                //getting newest list and filtering it for all customers.
+                userModel.showList();
+
+                ObservableList<User> customers = FXCollections.observableArrayList();
+                for (User user : userModel.getUsersForCheck()) {
+                    if (user.getIsSpecial() == 3) {
+                        customers.add(user);
+                    }
+                }
+
+                //clearing out and setting cell information
+                tableUsers.getItems().clear();
+
+                tableName.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
+                tableLogin.setCellValueFactory(new PropertyValueFactory<User, String>("login"));
+                tablePassword.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
+
+
+                //adding all customers
+                tableUsers.setItems(customers);
+    }
+
 
     public void getPlanners() throws Exception {
 
@@ -265,5 +303,50 @@ public class AdminController extends BaseController implements Initializable {
         tableUsers.setItems(specialUsers);
     }
 
+    public void getMissingApproval() throws Exception {
+
+        //getting the newest list with all users.
+        eventMakerModel.getObservableEvents();
+
+
+        //filtering list to get all planners
+        ObservableList<Event> missingApproval = FXCollections.observableArrayList();
+        for (Event event : eventMakerModel.getObservableEvents()) {
+            if (event.isApproved() == false) {
+                missingApproval.add(event);
+            }
+        }
+
+        //clearing out the table
+        tableEvents.getItems().clear();
+
+        eventApproval.setCellValueFactory(new PropertyValueFactory<Event, Boolean>("Approved"));
+        eventStart.setCellValueFactory(new PropertyValueFactory<Event, String>("eventStart"));
+        eventEnd.setCellValueFactory(new PropertyValueFactory<Event, String>("eventEnd"));
+        eventName.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
+        eventLocation.setCellValueFactory(new PropertyValueFactory<Event, String>("location"));
+
+        //adding the planners to our table.
+        tableEvents.setItems(missingApproval);
+    }
+
+    public void setEventsForShow() throws Exception {
+
+        //getting the newest list with all users.
+        eventMakerModel.getObservableEvents();
+
+
+        //clearing out the table
+        tableEvents.getItems().clear();
+
+        eventApproval.setCellValueFactory(new PropertyValueFactory<Event, Boolean>("Approved"));
+        eventStart.setCellValueFactory(new PropertyValueFactory<Event, String>("eventStart"));
+        eventEnd.setCellValueFactory(new PropertyValueFactory<Event, String>("eventEnd"));
+        eventName.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
+        eventLocation.setCellValueFactory(new PropertyValueFactory<Event, String>("location"));
+
+        //adding the planners to our table.
+        tableEvents.setItems(eventMakerModel.getObservableEvents());
+    }
 
 }

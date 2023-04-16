@@ -23,9 +23,13 @@ public class EventMakerModel {
         return events;
     }
 
-    public void createEvent(String name, String description, LocalDateTime eventStart, LocalDateTime eventEnd, String location, int maxTickets,
-                            int soldTickets, String createdBy, Boolean Approved) throws Exception{
+    public void createEvent(String name, String description, String eventStart, String eventEnd, String location, int maxTickets,
+                            int soldTickets, int createdBy, Boolean Approved) throws Exception{
         Event event = eventManager.createEvent(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved);
         events.add(event);
+    }
+
+    public void updateApproval(Event event, boolean approval) throws Exception {
+        eventManager.updateApproval(event, approval);
     }
 }

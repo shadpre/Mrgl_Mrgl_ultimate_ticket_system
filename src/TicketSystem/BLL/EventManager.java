@@ -22,9 +22,13 @@ public class EventManager {
 
     }
 
-    public Event createEvent(String name, String description, LocalDateTime eventStart, LocalDateTime eventEnd, String location, int maxTickets,
-                             int soldTickets, String createdBy, Boolean Approved) throws Exception{
+    public Event createEvent(String name, String description, String eventStart, String eventEnd, String location, int maxTickets,
+                             int soldTickets, int createdBy, Boolean Approved) throws Exception{
         return eventsDAO_db.createEvent(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved);
     }
 
+    public void updateApproval(Event event, boolean approval) throws Exception
+    {
+        eventsDAO_db.updateMovieRating(event,approval);
+    }
 }

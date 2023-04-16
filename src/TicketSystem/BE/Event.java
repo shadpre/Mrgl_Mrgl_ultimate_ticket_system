@@ -6,8 +6,8 @@ public class Event {
     private int ID;
     private String Name;
     private String Description;
-    private LocalDateTime EventStart;
-    private LocalDateTime EventEnd;
+    private String EventStart;
+    private String EventEnd;
     private String Location;
     private int MaxTickets;
     private int SoldTickets;
@@ -27,11 +27,11 @@ public class Event {
         Description = description;
     }
 
-    public void setEventStart(LocalDateTime eventStart) {
+    public void setEventStart(String eventStart) {
         EventStart = eventStart;
     }
 
-    public void setEventEnd(LocalDateTime eventEnd) {
+    public void setEventEnd(String eventEnd) {
         EventEnd = eventEnd;
     }
 
@@ -51,7 +51,7 @@ public class Event {
         CreatedBy = createdBy;
     }
 
-    public Event(int ID, String name, String description, LocalDateTime eventStart, LocalDateTime eventEnd, String location, int maxTickets, int soldTickets, int createdBy, boolean approved) {
+    public Event(int ID, String name, String description, String eventStart, String eventEnd, String location, int maxTickets, int soldTickets, int createdBy, boolean approved) {
         this.ID = ID;
         Name = name;
         Description = description;
@@ -76,11 +76,11 @@ public class Event {
         return Description;
     }
 
-    public LocalDateTime getEventStart() {
+    public String getEventStart() {
         return EventStart;
     }
 
-    public LocalDateTime getEventEnd() {
+    public String getEventEnd() {
         return EventEnd;
     }
 
@@ -107,4 +107,6 @@ public class Event {
     public void setApproved(boolean approved) {
         Approved = approved;
     }
+
+
 }

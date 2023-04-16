@@ -33,8 +33,8 @@ public class EventsDAO_DB {
                 int id = resultSet.getInt("ID");
                 String name = resultSet.getString("Name");
                 String description = resultSet.getString("Description");
-                LocalDateTime eventStart = resultSet.getTimestamp("EventStart").toLocalDateTime();
-                LocalDateTime eventEnd = resultSet.getTimestamp("EventEnd") != null ? resultSet.getTimestamp("EventEnd").toLocalDateTime() : null;
+                String eventStart = resultSet.getString("EventStart");
+                String eventEnd = resultSet.getString("EventEnd");
                 String location = resultSet.getString("Location");
                 int maxTickets = resultSet.getInt("MaxTickets");
                 int soldTickets = resultSet.getInt("SoldTickets");
@@ -56,21 +56,22 @@ public class EventsDAO_DB {
 
     }
 
-    public Event createEvent(String name, String description, LocalDateTime eventStart, LocalDateTime eventEnd, String location, int maxTickets,
-                             int soldTickets, String createdBy, Boolean approved) throws Exception {
-        String sql = "INSERT INTO Event (name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved)VALUES (?,?,?,?,?,?,?,?,?);";
+    public Event createEvent(String name, String description, String eventStart, String eventEnd, String location, int maxTickets,
+                             int soldTickets, int createdBy, Boolean approved) throws Exception {
+        String sql = "INSERT INTO Events (name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved)VALUES (?,?,?,?,?,?,?,?,?);";
 
         try(Connection connection = databaseConnector.getConnection()){
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             statement.setString(1, name);
             statement.setString(2, description);
-            //statement.setDate(3, eventStart);
-            //statement.setDate(4, eventEnd);
+            statement.setString(3, eventStart);
+            statement.setString(4, eventEnd);
             statement.setString(5, location);
             statement.setInt(6, maxTickets);
             statement.setInt(7, soldTickets);
-            statement.setString(8, createdBy);
+            statement.setInt(8, createdBy);
+            statement.setBoolean(9, approved);
 
             statement.executeUpdate();
             //giving an ID value to the song we create.
@@ -81,14 +82,33 @@ public class EventsDAO_DB {
                 id = rs.getInt(1);
             }
 
-            //Event event = new Event(id, name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy);
-            //return event;
+            Event event = new Event(id, name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, approved);
+            return event;
         }
         catch (SQLException exc){
             exc.printStackTrace();
             throw new Exception("Could not create song", exc);
 
         }
-        return null; // delete this later
+        //return null; // delete this later
+    }
+
+    public void updateMovieRating(Event event, boolean approval) throws Exception {
+
+        String sql = "UPDATE Events SET  Approved=? WHERE ID = ?";
+
+        try (Connection conn = databaseConnector.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            // Bind parameters
+            stmt.setBoolean(1,approval );
+            stmt.setInt(2, event.getID());
+
+            stmt.executeUpdate();
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new Exception("Could not change Approval", ex);
+        }
     }
 }

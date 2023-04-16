@@ -11,9 +11,9 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Planner.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.EventMakerController">
    <children>
       <Button fx:id="uploadPicBtn" layoutX="374.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleUploadPicture" text="Upload Picture" />
-      <TextField fx:id="txtHeadline" layoutX="151.0" layoutY="69.0" />
+      <TextField fx:id="txtName" layoutX="151.0" layoutY="69.0" />
       <TextField fx:id="txtDescription" layoutX="151.0" layoutY="123.0" />
-      <TextField fx:id="txtAddress" layoutX="151.0" layoutY="238.0" />
+      <TextField fx:id="txtLocation" layoutX="151.0" layoutY="238.0" />
       <TextField fx:id="txtTickets" layoutX="151.0" layoutY="291.0" />
       <Label fx:id="headlineLbl" layoutX="48.0" layoutY="68.0" text="Headline">
          <font>
@@ -40,6 +40,12 @@
       <Button fx:id="createEventBtn" layoutX="374.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleCreateEvent" text="Create" />
       <DatePicker fx:id="txtDate" layoutX="151.0" layoutY="181.0" />
       <Label fx:id="dateLbl" layoutX="51.0" layoutY="180.0" text="Date">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="txtDateEnd" layoutX="150.0" layoutY="208.0" />
+      <Label fx:id="dateLbl1" layoutX="50.0" layoutY="207.0" prefHeight="27.0" prefWidth="79.0" text="DateEnd">
          <font>
             <Font size="18.0" />
          </font>
