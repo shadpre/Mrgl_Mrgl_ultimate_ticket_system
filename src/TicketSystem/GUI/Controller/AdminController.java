@@ -52,6 +52,8 @@ public class AdminController extends BaseController implements Initializable {
     @FXML
     private TableColumn<Event, Boolean> eventApproval;
 
+    @FXML TableColumn<Event, String> adminTableDate;
+
     @FXML
     private TableColumn<Event, String> eventEnd;
 
@@ -89,6 +91,7 @@ public class AdminController extends BaseController implements Initializable {
         tableUsers.setVisible(false);
 
         eventApproval.setCellValueFactory(new PropertyValueFactory<Event, Boolean>("Approved"));
+        adminTableDate.setCellValueFactory(new PropertyValueFactory<Event, String>("date"));
         eventStart.setCellValueFactory(new PropertyValueFactory<Event, String>("eventStart"));
         eventEnd.setCellValueFactory(new PropertyValueFactory<Event, String>("eventEnd"));
         eventName.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
@@ -209,15 +212,25 @@ public class AdminController extends BaseController implements Initializable {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "");
             alert.showAndWait();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
     public void handleCancel(ActionEvent actionEvent) throws Exception {
-        Event event = tableEvents.getSelectionModel().getSelectedItem();
+        this.eventMakerModel = eventMakerModel;
 
-        Boolean approval = false;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("You are about to delete a Event");
+        alert.setContentText("Are you sure you want to delete?");
+        Optional<ButtonType> result = alert.showAndWait();
 
-        eventMakerModel.updateApproval(event, approval);
+        if (result.get() == ButtonType.OK) {
+            Event deletedEvent = tableEvents.getSelectionModel().getSelectedItem();
+            eventMakerModel.deleteEvent(deletedEvent);
+            getMissingApproval();
+        }
     }
 
     public void handleApprove(ActionEvent actionEvent) throws Exception {
@@ -265,6 +278,7 @@ public class AdminController extends BaseController implements Initializable {
         if (result.get() == ButtonType.OK) {
             Event deletedEvent = tableEvents.getSelectionModel().getSelectedItem();
             eventMakerModel.deleteEvent(deletedEvent);
+            setEventsForShow();
         }
     }
 
@@ -370,6 +384,7 @@ public class AdminController extends BaseController implements Initializable {
         tableEvents.getItems().clear();
 
         eventApproval.setCellValueFactory(new PropertyValueFactory<Event, Boolean>("Approved"));
+        adminTableDate.setCellValueFactory(new PropertyValueFactory<Event, String>("date"));
         eventStart.setCellValueFactory(new PropertyValueFactory<Event, String>("eventStart"));
         eventEnd.setCellValueFactory(new PropertyValueFactory<Event, String>("eventEnd"));
         eventName.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
@@ -389,6 +404,7 @@ public class AdminController extends BaseController implements Initializable {
         tableEvents.getItems().clear();
 
         eventApproval.setCellValueFactory(new PropertyValueFactory<Event, Boolean>("Approved"));
+        adminTableDate.setCellValueFactory(new PropertyValueFactory<Event, String>("date"));
         eventStart.setCellValueFactory(new PropertyValueFactory<Event, String>("eventStart"));
         eventEnd.setCellValueFactory(new PropertyValueFactory<Event, String>("eventEnd"));
         eventName.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));

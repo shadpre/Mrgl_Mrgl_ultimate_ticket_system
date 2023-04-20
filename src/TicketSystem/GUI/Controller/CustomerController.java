@@ -110,6 +110,8 @@ public class CustomerController extends BaseController implements Initializable 
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "");
             alert.showAndWait();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

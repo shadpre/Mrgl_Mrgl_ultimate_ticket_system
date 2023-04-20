@@ -63,9 +63,11 @@ public class EventInfoController extends BaseController implements Initializable
     }
 
 
-    public void setUp(EventMakerModel eventMakerModel){
+    public void setUp(EventMakerModel eventMakerModel) throws Exception {
 
         this.eventMakerModel = eventMakerModel;
+        eventMakerModel.getObservableEvents();
+
         int ticketsLeft = eventMakerModel.getSelectedEvent().getMaxTickets() - eventMakerModel.getSelectedEvent().getSoldTickets();
         infoName.setText(eventMakerModel.getSelectedEvent().getName());
         textDescript.setText(eventMakerModel.getSelectedEvent().getDescription());
@@ -73,8 +75,9 @@ public class EventInfoController extends BaseController implements Initializable
         infoLoc.setText(eventMakerModel.getSelectedEvent().getLocation());
         infoSold.setText(String.valueOf(eventMakerModel.getSelectedEvent().getMaxTickets()));
         infoMax.setText(String.valueOf(ticketsLeft));
-        infoDate.setText(eventMakerModel.getSelectedEvent().getEventStart());
-        infoStart.setText(eventMakerModel.getSelectedEvent().getEventEnd());
+        infoDate.setText(eventMakerModel.getSelectedEvent().getDate());
+        infoStart.setText(eventMakerModel.getSelectedEvent().getEventStart());
+        infoEnd.setText(eventMakerModel.getSelectedEvent().getEventEnd());
 
     }
 

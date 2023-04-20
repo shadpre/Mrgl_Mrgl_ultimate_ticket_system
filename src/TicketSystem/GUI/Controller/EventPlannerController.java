@@ -151,6 +151,8 @@ public class EventPlannerController extends BaseController implements Initializa
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "");
             alert.showAndWait();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

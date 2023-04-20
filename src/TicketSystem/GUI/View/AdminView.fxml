@@ -53,10 +53,11 @@
             <TableView fx:id="tableEvents" prefHeight="200.0" prefWidth="200.0">
                <columns>
                   <TableColumn fx:id="eventName" prefWidth="172.0" text="Event Name" />
-                  <TableColumn fx:id="eventStart" prefWidth="132.00006103515625" text="Event Start" />
-                  <TableColumn fx:id="eventEnd" prefWidth="132.79998779296875" text="Event End" />
-                  <TableColumn fx:id="eventLocation" prefWidth="168.0" text="Location" />
-                  <TableColumn fx:id="eventApproval" prefWidth="64.7999267578125" text="Approval" />
+                  <TableColumn fx:id="adminTableDate" prefWidth="114.39996337890625" text="Date" />
+                  <TableColumn fx:id="eventStart" prefWidth="87.199951171875" text="Event Start" />
+                  <TableColumn fx:id="eventEnd" text="Event End" />
+                  <TableColumn fx:id="eventLocation" prefWidth="144.800048828125" text="Location" />
+                  <TableColumn fx:id="eventApproval" prefWidth="71.199951171875" text="Approval" />
                </columns>
             </TableView>
          </children>
