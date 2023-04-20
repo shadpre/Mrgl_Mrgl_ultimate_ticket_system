@@ -126,6 +126,32 @@ public class EventPlannerController extends BaseController implements Initializa
     }
 
     public void handleShowEEvent(ActionEvent actionEvent) {
+        try {
+
+            Event selectedEvent = tableEventsPlanner.getSelectionModel().getSelectedItem();
+
+            if(selectedEvent != null) {
+                eventMakerModel.setSelectedEvent(selectedEvent);
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/EventInfo.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("EASV Events");
+                stage.show();
+
+                //setting controller and model for new window.
+
+                EventInfoController controller = loader.getController();
+                controller.setEventModel(eventMakerModel);
+                controller.setUp(eventMakerModel);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "");
+            alert.showAndWait();
+        }
     }
 
     public void handleYourEEvent(ActionEvent actionEvent) {

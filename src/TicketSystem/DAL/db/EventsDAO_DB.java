@@ -1,6 +1,8 @@
 package TicketSystem.DAL.db;
 
 import TicketSystem.BE.Event;
+import TicketSystem.BE.User;
+
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -40,9 +42,10 @@ public class EventsDAO_DB {
                 int soldTickets = resultSet.getInt("SoldTickets");
                 int createdBy = resultSet.getInt("CreatedBy");
                 boolean approved = resultSet.getBoolean("Approved");
+                String date = resultSet.getString("Date");
 
 
-                Event events = new Event(id, name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, approved);
+                Event events = new Event(id, name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, approved, date);
 
                 allEvents.add(events);
             }
@@ -57,8 +60,8 @@ public class EventsDAO_DB {
     }
 
     public Event createEvent(String name, String description, String eventStart, String eventEnd, String location, int maxTickets,
-                             int soldTickets, int createdBy, Boolean approved) throws Exception {
-        String sql = "INSERT INTO Events (name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved)VALUES (?,?,?,?,?,?,?,?,?);";
+                             int soldTickets, int createdBy, Boolean approved, String date) throws Exception {
+        String sql = "INSERT INTO Events (name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved, date)VALUES (?,?,?,?,?,?,?,?,?,?);";
 
         try(Connection connection = databaseConnector.getConnection()){
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -72,6 +75,7 @@ public class EventsDAO_DB {
             statement.setInt(7, soldTickets);
             statement.setInt(8, createdBy);
             statement.setBoolean(9, approved);
+            statement.setString(10,date);
 
             statement.executeUpdate();
             //giving an ID value to the song we create.
@@ -82,7 +86,7 @@ public class EventsDAO_DB {
                 id = rs.getInt(1);
             }
 
-            Event event = new Event(id, name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, approved);
+            Event event = new Event(id, name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, approved, date);
             return event;
         }
         catch (SQLException exc){
@@ -93,6 +97,23 @@ public class EventsDAO_DB {
         //return null; // delete this later
     }
 
+    public void deleteEvent(Event event) throws Exception {
+
+        try(Connection connection = databaseConnector.getConnection()){
+
+            String sql = "DELETE FROM dbo.Events WHERE id = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setInt(1, event.getID());
+
+            statement.executeUpdate();
+        }
+        catch (SQLException exc){
+            exc.printStackTrace();
+            throw new Exception("Could not delete event", exc);
+        }
+
+    }
     public void updateEventApproval(Event event, boolean approval) throws Exception {
 
         String sql = "UPDATE Events SET  Approved=? WHERE ID = ?";

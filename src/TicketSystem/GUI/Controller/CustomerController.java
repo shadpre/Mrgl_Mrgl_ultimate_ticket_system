@@ -61,8 +61,8 @@ public class CustomerController extends BaseController implements Initializable 
     private Text labelCustomer;
 
     @FXML
-    private TableView<Event> tableCustomer;
-    
+    public TableView<Event> tableCustomer;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,13 +79,38 @@ public class CustomerController extends BaseController implements Initializable 
 
     }
 
-    public void handleCustomerAllEvents(ActionEvent actionEvent) {
-    }
+
 
     public void handleCancelSignup(ActionEvent actionEvent) {
     }
 
     public void handleCustomerEvents(ActionEvent actionEvent) {
+        try {
+
+            Event selectedEvent = tableCustomer.getSelectionModel().getSelectedItem();
+
+            if(selectedEvent != null) {
+                eventMakerModel.setSelectedEvent(selectedEvent);
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/EventInfo.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("EASV Events");
+                stage.show();
+
+                //setting controller and model for new window.
+
+                EventInfoController controller = loader.getController();
+                controller.setEventModel(eventMakerModel);
+                controller.setUp(eventMakerModel);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "");
+            alert.showAndWait();
+        }
     }
 
     public void handleCustomerUser(ActionEvent actionEvent) {

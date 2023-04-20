@@ -14,6 +14,7 @@ public class Event {
     private int CreatedBy;
 
     private boolean Approved;
+    private String Date;
 
     public void setID(int ID) {
         this.ID = ID;
@@ -35,6 +36,12 @@ public class Event {
         EventEnd = eventEnd;
     }
 
+    public void setDate(String date){Date = date;}
+
+    public String getDate() {
+        return Date;
+    }
+
     public void setLocation(String location) {
         Location = location;
     }
@@ -51,7 +58,7 @@ public class Event {
         CreatedBy = createdBy;
     }
 
-    public Event(int ID, String name, String description, String eventStart, String eventEnd, String location, int maxTickets, int soldTickets, int createdBy, boolean approved) {
+    public Event(int ID, String name, String description, String eventStart, String eventEnd, String location, int maxTickets, int soldTickets, int createdBy, boolean approved, String date) {
         this.ID = ID;
         Name = name;
         Description = description;
@@ -62,6 +69,7 @@ public class Event {
         SoldTickets = soldTickets;
         CreatedBy = createdBy;
         Approved = approved;
+        Date = date;
     }
 
     public int getID() {

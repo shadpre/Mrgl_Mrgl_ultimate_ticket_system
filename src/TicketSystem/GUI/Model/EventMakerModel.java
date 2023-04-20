@@ -1,6 +1,7 @@
 package TicketSystem.GUI.Model;
 
 import TicketSystem.BE.Event;
+import TicketSystem.BE.User;
 import TicketSystem.BLL.EventManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,6 +9,8 @@ import javafx.collections.ObservableList;
 import java.time.LocalDateTime;
 
 public class EventMakerModel {
+
+    private Event selectedEvent;
     private EventManager eventManager;
     private ObservableList<Event> events;
 
@@ -24,12 +27,24 @@ public class EventMakerModel {
     }
 
     public void createEvent(String name, String description, String eventStart, String eventEnd, String location, int maxTickets,
-                            int soldTickets, int createdBy, Boolean Approved) throws Exception{
-        Event event = eventManager.createEvent(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved);
+                            int soldTickets, int createdBy, Boolean Approved, String date) throws Exception{
+        Event event = eventManager.createEvent(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved, date);
         events.add(event);
     }
 
     public void updateApproval(Event event, boolean approval) throws Exception {
         eventManager.updateApproval(event, approval);
+    }
+
+    public void deleteEvent(Event deletedEvent) throws Exception {
+        eventManager.deleteEvent(deletedEvent);
+        getObservableEvents().clear();
+        getObservableEvents().addAll(eventManager.getAllEvents());
+    }
+
+    public Event getSelectedEvent(){return selectedEvent;}
+
+    public void setSelectedEvent(Event selectedEvent) {
+        this.selectedEvent = selectedEvent;
     }
 }

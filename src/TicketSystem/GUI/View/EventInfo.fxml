@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="478.0" prefWidth="802.0" stylesheets="@Planner.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.EventInfoController">
+   <children>
+      <Label fx:id="infoName" layoutX="56.0" layoutY="63.0" prefHeight="49.0" prefWidth="206.0" text="Name Of Event" textAlignment="CENTER" />
+      <Label fx:id="infoDate" layoutX="612.0" layoutY="108.0" prefHeight="36.0" prefWidth="168.0" text="Date" />
+      <Label fx:id="infoStart" layoutX="612.0" layoutY="186.0" prefHeight="36.0" prefWidth="168.0" text="Start time" />
+      <Label fx:id="infoEnd" layoutX="612.0" layoutY="254.0" prefHeight="36.0" prefWidth="168.0" text="End Time" />
+      <Label fx:id="infoLoc" layoutX="304.0" layoutY="94.0" prefHeight="50.0" prefWidth="200.0" text="Location" />
+      <Label fx:id="infoSold" layoutX="301.0" layoutY="204.0" prefHeight="61.0" prefWidth="200.0" text="Sold tickets" />
+      <Label fx:id="infoMax" layoutX="304.0" layoutY="305.0" prefHeight="62.0" prefWidth="200.0" text="Availeble Tickets" />
+      <Button fx:id="bookTicket" layoutX="647.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleBookTicket" prefHeight="42.0" prefWidth="122.0" text="Book Ticket" />
+      <Text fill="#ba6b09" layoutX="683.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+         <font>
+            <Font name="Gill Sans MT" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#ba6b09" layoutX="670.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start time">
+         <font>
+            <Font name="Gill Sans MT" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#ba6b09" layoutX="673.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End time">
+         <font>
+            <Font name="Gill Sans MT" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#ba6b09" layoutX="378.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location">
+         <font>
+            <Font name="Gill Sans MT" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#ba6b09" layoutX="364.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Tickets" wrappingWidth="98.43963623046875">
+         <font>
+            <Font name="Gill Sans MT" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#ba6b09" layoutX="364.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tickets Left" wrappingWidth="98.43963623046875">
+         <font>
+            <Font name="Gill Sans MT" size="13.0" />
+         </font>
+      </Text>
+      <Text fill="#ba6b09" layoutX="128.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+         <font>
+            <Font name="Gill Sans MT" size="13.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="textDescript" layoutX="56.0" layoutY="166.0" prefHeight="230.0" prefWidth="206.0" />
+      <Button fx:id="infoCancel" layoutX="56.0" layoutY="413.0" mnemonicParsing="false" onAction="#handleInfoCancel" text="Cancel" />
+   </children>
+</AnchorPane>

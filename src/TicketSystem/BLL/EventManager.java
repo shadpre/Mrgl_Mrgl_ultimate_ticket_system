@@ -1,6 +1,7 @@
 package TicketSystem.BLL;
 
 import TicketSystem.BE.Event;
+import TicketSystem.BE.User;
 import TicketSystem.DAL.db.EventsDAO_DB;
 
 import java.io.IOException;
@@ -23,12 +24,16 @@ public class EventManager {
     }
 
     public Event createEvent(String name, String description, String eventStart, String eventEnd, String location, int maxTickets,
-                             int soldTickets, int createdBy, Boolean Approved) throws Exception{
-        return eventsDAO_db.createEvent(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved);
+                             int soldTickets, int createdBy, Boolean Approved, String date) throws Exception{
+        return eventsDAO_db.createEvent(name, description, eventStart, eventEnd, location, maxTickets, soldTickets, createdBy, Approved, date);
     }
 
     public void updateApproval(Event event, boolean approval) throws Exception
     {
         eventsDAO_db.updateEventApproval(event,approval);
+    }
+
+    public void deleteEvent(Event deletedEvent) throws Exception{
+        eventsDAO_db.deleteEvent(deletedEvent);
     }
 }

@@ -6,10 +6,7 @@ import TicketSystem.GUI.Model.EventMakerModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -28,19 +25,21 @@ public class EventMakerController extends BaseController implements Initializabl
     private AppModel appModel;
 
     private EventMakerModel eventMakerModel;
-    @FXML
-    private DatePicker txtDateEnd;
+
     private final List<Image> images = new ArrayList<>();
     @FXML
     private Label ticketsSoldLbl2, createdByLbl;
     @FXML
-    private DatePicker txtDate;
+    private DatePicker makerDate;
     @FXML
     private Button cancelBtn, createEventBtn, uploadPicBtn;
     @FXML
     private ImageView eventPicture;
     @FXML
-    private TextField txtName, txtDescription, txtTickets, txtLocation, txtTicketsAvail;
+    private TextField makerName, makerLocation, makerStart, makerEnd, makerTickets;
+
+    @FXML
+    private TextArea makerDescript;
 
     public void handleUploadPicture(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
@@ -61,17 +60,18 @@ public class EventMakerController extends BaseController implements Initializabl
 
     public void handleCreateEvent(ActionEvent actionEvent) throws Exception {
 
-        String name = txtName.getText();
-        String description = txtDescription.getText();
-        String eventStart = txtDate.getValue().toString();
-        String eventEnd = txtDateEnd.getValue().toString();
-        String location = txtLocation.getText();
-        int maxTickets = Integer.parseInt(txtTickets.getText());
+        String name = makerName.getText();
+        String description = makerDescript.getText();
+        String eventStart = makerStart.getText();
+        String eventEnd = makerEnd.getText();
+        String location = makerLocation.getText();
+        int maxTickets = Integer.parseInt(makerTickets.getText());
         int ticketsSold = 0;
         int createdBy = 1;
         boolean approved = false;
+        String date = makerDate.getValue().toString();
 
-        eventMakerModel.createEvent(name, description, eventStart, eventEnd, location,maxTickets, ticketsSold, createdBy, approved );
+        eventMakerModel.createEvent(name, description, eventStart, eventEnd, location, maxTickets, ticketsSold, createdBy, approved, date );
 
         Stage stage = (Stage) createEventBtn.getScene().getWindow();
         stage.close();

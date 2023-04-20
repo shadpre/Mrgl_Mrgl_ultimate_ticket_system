@@ -11,17 +11,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="984.0" stylesheets="@Admin.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.AdminController">
    <children>
-      <Button fx:id="adminPage" layoutX="42.0" layoutY="141.0" mnemonicParsing="false" onAction="#handleAdmingPage" prefHeight="54.0" prefWidth="130.0" text="Admin" textFill="#cf9121">
+      <Button fx:id="addPlanner" layoutX="42.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleAddPlanner" prefHeight="54.0" prefWidth="130.0" text="Add Planner" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="addPlanner" layoutX="42.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleAddPlanner" prefHeight="54.0" prefWidth="130.0" text="Add Planner" textFill="#cf9121">
-         <font>
-            <Font name="Gill Sans MT Bold" size="15.0" />
-         </font>
-      </Button>
-      <Button fx:id="deleteUser" layoutX="42.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleDeleteUser" prefHeight="53.0" prefWidth="129.0" text="Delete User" textFill="#cf9121">
+      <Button fx:id="deleteUser" layoutX="42.0" layoutY="266.0" mnemonicParsing="false" onAction="#handleDeleteUser" prefHeight="53.0" prefWidth="129.0" text="Delete User" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="14.0" />
          </font>
@@ -31,14 +26,9 @@
             <Image url="@../../../data/img/Admin.png" />
          </image>
       </ImageView>
-      <Button fx:id="createAEvent" layoutX="42.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleCreateAEvent" prefHeight="54.0" prefWidth="130.0" text="Create Event" textFill="#cf9121">
+      <Button fx:id="createAEvent" layoutX="42.0" layoutY="430.0" mnemonicParsing="false" onAction="#handleCreateAEvent" prefHeight="54.0" prefWidth="130.0" text="Create Event" textFill="#cf9121">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
-         </font>
-      </Button>
-      <Button fx:id="updateAEvent" layoutX="42.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleUpdateAEvent" prefHeight="53.0" prefWidth="129.0" text="Update Event" textFill="#cf9121">
-         <font>
-            <Font name="Gill Sans MT Bold" size="14.0" />
          </font>
       </Button>
       <Button fx:id="deleteAEvent" layoutX="42.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleDeleteAEvent" prefHeight="53.0" prefWidth="129.0" text="Delete Event" textFill="#cf9121">

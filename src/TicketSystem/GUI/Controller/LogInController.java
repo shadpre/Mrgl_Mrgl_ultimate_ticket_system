@@ -32,7 +32,7 @@ public class LogInController extends BaseController implements Initializable {
     private PasswordField passwordTxt;
 
     @FXML
-    private TextField userNameTxt;
+    public TextField userNameTxt;
 
     private UserModel usermodel;
 

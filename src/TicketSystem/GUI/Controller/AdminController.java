@@ -34,6 +34,8 @@ public class AdminController extends BaseController implements Initializable {
 
     private ObservableList<User> getUsersForCheck;
 
+    private LogInController logInController;
+
     private EventMakerModel eventMakerModel;
     @FXML
     private TableView<User> tableUsers;
@@ -164,16 +166,50 @@ public class AdminController extends BaseController implements Initializable {
         }
     }
 
-    public void handleUpdateAEvent(ActionEvent actionEvent) {
-    }
 
-    public void handleDeleteAEvent(ActionEvent actionEvent) {
+
+    public void handleDeleteAEvent(ActionEvent actionEvent) throws Exception {
+        try
+        {
+            confirmationEventDeletion();
+        }
+
+        catch (Exception exc) {
+            exc.printStackTrace();
+            throw new Exception("Could not delete Event", exc);
+        }
     }
 
     public void handleShowPlanners(ActionEvent actionEvent) {
     }
 
     public void handleShowAEvent(ActionEvent actionEvent) {
+        try {
+
+            Event selectedEvent = tableEvents.getSelectionModel().getSelectedItem();
+
+            if(selectedEvent != null) {
+                eventMakerModel.setSelectedEvent(selectedEvent);
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketSystem/GUI/View/EventInfo.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("EASV Events");
+                stage.show();
+
+                //setting controller and model for new window.
+
+                EventInfoController controller = loader.getController();
+                controller.setEventModel(eventMakerModel);
+                controller.setUp(eventMakerModel);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "");
+            alert.showAndWait();
+        }
     }
 
     public void handleCancel(ActionEvent actionEvent) throws Exception {
@@ -217,7 +253,20 @@ public class AdminController extends BaseController implements Initializable {
                 tableEvents.setVisible(false);
                 getCustomers();
     }
+    public void confirmationEventDeletion() throws Exception{
+        this.eventMakerModel = eventMakerModel;
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("You are about to delete a Event");
+        alert.setContentText("Are you sure you want to delete?");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            Event deletedEvent = tableEvents.getSelectionModel().getSelectedItem();
+            eventMakerModel.deleteEvent(deletedEvent);
+        }
+    }
 
     public void confirmationUserDeletion () throws Exception {
 

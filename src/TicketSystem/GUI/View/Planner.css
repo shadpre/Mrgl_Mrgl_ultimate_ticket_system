@@ -21,5 +21,16 @@ AnchorPane
 
 Label
 {
-    -fx-text-fill: #b4ac42;
+    -fx-text-fill: Black;
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-border-width: 2px;
+    -fx-border-color: #b4ac42;
+}
+
+TextArea
+{
+    -fx-text-fill: Black;
+    -fx-background-color: transparent;
+    -fx-border-color: #b4ac42;
+    -fx-border-width: 1px;
 }
