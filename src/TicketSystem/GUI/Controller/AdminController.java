@@ -13,10 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -65,6 +62,11 @@ public class AdminController extends BaseController implements Initializable {
 
     @FXML
     private TableColumn<Event, String> eventStart;
+
+    @FXML
+    private Button approve, cancel;
+
+
 
     public AdminController() {
     }
@@ -413,5 +415,7 @@ public class AdminController extends BaseController implements Initializable {
         //adding the planners to our table.
         tableEvents.setItems(eventMakerModel.getObservableEvents());
     }
+
+
 
 }

@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="984.0" stylesheets="@Admin.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketSystem.GUI.Controller.AdminController">
    <children>
-      <Button fx:id="addPlanner" layoutX="42.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleAddPlanner" prefHeight="54.0" prefWidth="130.0" text="Add Planner" textFill="#cf9121">
+      <Button fx:id="addPlanner" layoutX="42.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleAddPlanner" prefHeight="54.0" prefWidth="130.0" text="Add Planner" textFill="#ae3311">
          <font>
             <Font name="Gill Sans MT Bold" size="15.0" />
          </font>
@@ -21,9 +21,9 @@
             <Font name="Gill Sans MT Bold" size="14.0" />
          </font>
       </Button>
-      <ImageView fx:id="admingPic" fitHeight="107.0" fitWidth="130.0" layoutX="52.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="admingPic" fitHeight="137.0" fitWidth="121.0" layoutX="47.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../data/img/Admin.png" />
+            <Image url="@../../../data/img/Admin2.png" />
          </image>
       </ImageView>
       <Button fx:id="createAEvent" layoutX="42.0" layoutY="430.0" mnemonicParsing="false" onAction="#handleCreateAEvent" prefHeight="54.0" prefWidth="130.0" text="Create Event" textFill="#cf9121">
@@ -57,7 +57,7 @@
                   <TableColumn fx:id="eventStart" prefWidth="87.199951171875" text="Event Start" />
                   <TableColumn fx:id="eventEnd" text="Event End" />
                   <TableColumn fx:id="eventLocation" prefWidth="144.800048828125" text="Location" />
-                  <TableColumn fx:id="eventApproval" prefWidth="71.199951171875" text="Approval" />
+                  <TableColumn fx:id="eventApproval" prefWidth="70.40006103515623" text="Approval" />
                </columns>
             </TableView>
          </children>

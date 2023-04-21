@@ -1,17 +1,62 @@
 .button {
-    -fx-border-color: gold;
+    -fx-border-color: #d4cb53;
     -fx-border-width: 2px;
     -fx-border-radius: 3px;
     -fx-background-radius: 3px;
-    -fx-background-color:  white;
+    -fx-background-color:  snow;
+    -fx-text-fill: #d4cb53;
 }
 
 .button:hover {
-    -fx-border-color: yellow;
+    -fx-border-color: #e3d886;
     -fx-scale-y: 1.1;
     -fx-scale-x: 1.1;
 }
 
 AnchorPane {
     -fx-background-color: snow;
+}
+
+TableView {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #d4cb53, snow);
+    -fx-background-radius: 7px;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+.table-row-cell:hover {
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color: #d4cb53;
+}
+.table-row-cell:odd{
+    -fx-background-color: white;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:selected{
+    -fx-background-color: #d4cb53;
+    -fx-text-fill: snow;
+}
+.table-row-cell:even{
+    -fx-background-color: snow;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
 }
